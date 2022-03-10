@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>algorithm on Shivansh Subramanian</title>
-    <link>https://aurumnpegasus.github.io/website/tags/algorithm/</link>
+    <link>https://aurumnpegasus.github.io/tags/algorithm/</link>
     <description>Recent content in algorithm on Shivansh Subramanian</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sun, 07 Nov 2021 21:32:38 +0530</lastBuildDate><atom:link href="https://aurumnpegasus.github.io/website/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 Nov 2021 21:32:38 +0530</lastBuildDate><atom:link href="https://aurumnpegasus.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fast Multiplication</title>
-      <link>https://aurumnpegasus.github.io/website/posts/fastmult/</link>
+      <link>https://aurumnpegasus.github.io/posts/fastmult/</link>
       <pubDate>Sun, 07 Nov 2021 21:32:38 +0530</pubDate>
       
-      <guid>https://aurumnpegasus.github.io/website/posts/fastmult/</guid>
+      <guid>https://aurumnpegasus.github.io/posts/fastmult/</guid>
       <description>Multiplication, generally, is relatively easy to do, understand and code. Even the 2nd standard algorithm of multiple each digit with every other digit is simple enough to write. The issue is that such an algorithm takes $O(n^2)$,time complexity, which is a lot, especially if you want to multiply huge numbers. Hence why you need better algorithms in place to do your job. Note, languages like Python have lots of optimisations on top of specific algorithms used for computing products when the user types in a simple &amp;lsquo;*&amp;rsquo;, but the article is more about understanding these algorithms.</description>
     </item>
     
