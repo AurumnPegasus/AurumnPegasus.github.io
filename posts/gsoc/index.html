@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content="Google Summer of Code: 2022">
+<meta itemprop="description" content="This blog is about my contributions to sktime during GSoC &lsquo;22.
+Introduction sktime is a library based on sklearn meant for time-series data and problems. It has easy to use implementations of important statistical and ML-based estimators for the purposes of classification, regression and forecasting. This summer, I joined the sktime time on the project to add DL estimators to sktime.
+The main motivation for adding DL models in sktime is the recent surge in using DL networks in time series related computational problems.">
+<meta itemprop="datePublished" content="2022-11-17T15:08:33+05:30" />
+<meta itemprop="dateModified" content="2022-11-17T15:08:33+05:30" />
+<meta itemprop="wordCount" content="1261">
+
+
+
+<meta itemprop="keywords" content="DL,software," />
+<meta property="og:title" content="Google Summer of Code: 2022" />
+<meta property="og:description" content="This blog is about my contributions to sktime during GSoC &lsquo;22.
+Introduction sktime is a library based on sklearn meant for time-series data and problems. It has easy to use implementations of important statistical and ML-based estimators for the purposes of classification, regression and forecasting. This summer, I joined the sktime time on the project to add DL estimators to sktime.
+The main motivation for adding DL models in sktime is the recent surge in using DL networks in time series related computational problems." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://aurumnpegasus.github.io/posts/gsoc/" />
+<meta property="article:published_time" content="2022-11-17T15:08:33+05:30" />
+<meta property="article:modified_time" content="2022-11-17T15:08:33+05:30" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Google Summer of Code: 2022"/>
+<meta name="twitter:description" content="This blog is about my contributions to sktime during GSoC &lsquo;22.
+Introduction sktime is a library based on sklearn meant for time-series data and problems. It has easy to use implementations of important statistical and ML-based estimators for the purposes of classification, regression and forecasting. This summer, I joined the sktime time on the project to add DL estimators to sktime.
+The main motivation for adding DL models in sktime is the recent surge in using DL networks in time series related computational problems."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>Google Summer of Code: 2022</title>
+	<link rel="stylesheet" href="https://aurumnpegasus.github.io/css/style.min.eac77496566fd7d5768fd650ddb0b2b181ca6a2d7c5fdd6fe6b8ba4bf47e566f.css" integrity="sha256-6sd0llZv19V2j9ZQ3bCysYHKai18X91v5ri6S/R+Vm8=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://aurumnpegasus.github.io">Shivansh Subramanian</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://aurumnpegasus.github.io/posts/">Posts</a>
+				<a href="https://aurumnpegasus.github.io/about-hugo/">About</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="mailto:subramanian.shivansh@gmail.com" target="_blank" rel="noopener me" title="Email"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a><a href="https://www.linkedin.com/in/shivansh-subramanian-2151b6192/" target="_blank" rel="noopener me" title="Linkedin"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a><a href="https://github.com/AurumnPegasus" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://aurumnpegasus.github.io/posts/">Posts</a></li>
+			<li><a href="https://aurumnpegasus.github.io/about-hugo/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Nov 17, 2022</span></div>
+				<h1>Google Summer of Code: 2022</h1>
+			</header>
+			<div class="content">
+				<p>This blog is about my contributions to sktime during GSoC &lsquo;22.</p>
+<h2 id="introduction">Introduction<a href="#introduction" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p><a href="https://github.com/sktime/sktime">sktime</a> is a library based on sklearn meant for time-series data and problems. It has easy to use implementations of important statistical and ML-based estimators for the purposes of classification, regression and forecasting. This summer, I joined the sktime time on the project to add DL estimators to sktime.</p>
+<p>The main motivation for adding DL models in sktime is the recent surge in using DL networks in time series related computational problems. DL has taken over most computational problems, like NLP and CV, and in the most recent time-series forecasting competition, <a href="https://www.kaggle.com/c/m5-forecasting-accuracy">M5</a>, a lot of top submissions used DL models in there estimators. I wanted to support this upcoming change, and hence I wanted to contribute to sktime on this particular project.</p>
+<h2 id="3351-migration-of-sktime-dlhttpsgithubcomsktimesktimeissues3351"><a href="https://github.com/sktime/sktime/issues/3351">#3351: Migration of sktime-dl</a><a href="#3351-migration-of-sktime-dlhttpsgithubcomsktimesktimeissues3351" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p><a href="https://github.com/sktime/sktime-dl">sktime-dl</a> is an extension of sktime specific to DL estimators. Although sktime-dl comes under stkime, since it existed as a seperate module, the user workflow for both were not similar. sktime-dl did not have documentation with the clarity sktime had, and there were design differences which existed which made it not a simple task to just use-and-fit estimators in the workflow as one likes.</p>
+<p>Before joining, the migration project was already underway. The first PR towards it was by Tony in <a href="https://github.com/sktime/sktime/pull/2447">#2447 First transfer of deep learning classifiers and regressors from sktime-dl</a>. Within it, <code>CNNClassifier</code> was the first DL-Estimator to get migrated, based on which my work was built. My first contribution towards this issue was via the <a href="https://github.com/sktime/sktime/pull/2902"><code>CNNRegressor</code></a>, which was based on the <code>CNNNetwork</code> defined. In a sense, this reduced redundancies a lot, since we had to define a single network for both classifiers and regressors, and it made the workflow simpler. My first PR related to migration also required me to create <code>BaseDeepRegressor</code>, which is supposed to be similar in design to <code>BaseDeepClassifer</code> to ensure simple workflow.</p>
+<p>Once the first migration for classifiers and regressors (along with their BaseClass designs), it was simple to migrate other estimators along the same line. Some of the other estimators I have worked on migrating are:</p>
+<ul>
+<li>CNTCClassifier: <a href="https://github.com/sktime/sktime/pull/3171">#3171</a></li>
+<li>FCNClassifier: <a href="https://github.com/sktime/sktime/pull/3233">#3233</a></li>
+<li>MLPClassifier: <a href="https://github.com/sktime/sktime/pull/3232">#3232</a></li>
+<li>LSTMFCNClassifier: <a href="https://github.com/sktime/sktime/pull/3292">#3292</a></li>
+</ul>
+<p>Finally, to make the process of migration reproducable and easy, I wrote down the steps for a person to migrate any estimator they want (either from <code>sktime-dl</code> or one they create on their own) into <code>sktime</code>. This is present in the final issue I created related to this <a href="https://github.com/sktime/sktime/issues/3351">#3351: Migration of sktime-dl</a>. The process of migration now is so simple that it has been converted into a <code>good-firt-issue</code>, and can be taken up by new contributors.</p>
+<p>On top of the migration, I worked on improving the existing implementation of DL Estimators by adding more parameters and functionality, to improve the user experience and customizability.</p>
+<ul>
+<li>Adding more features to DL Classifiers: <a href="https://github.com/sktime/sktime/pull/2991">#2991</a></li>
+<li>Adding GPU functionality to DL Estimators: ongoing: <a href="https://github.com/sktime/sktime/pull/3072">#3072</a></li>
+<li>Adding extension template for DL Classifers and Networks: ongoing: <a href="https://github.com/sktime/sktime/pull/3433">#3433</a></li>
+<li>Adding save/load functionality for DL Estimators: worked with <a href="https://github.com/fkiraly">Franz Kiraly</a> and <a href="https://github.com/achieveordie">Sagar Mishra</a>:
+<ul>
+<li>Added save/load functionality for Deep Learning models: <a href="https://github.com/sktime/sktime/pull/3128">#3128</a></li>
+<li>Serialization and deserialization for sktime estimators: <a href="https://github.com/sktime/enhancement-proposals/pull/27">#27</a></li>
+<li>save/load aka serialization/deserialization for estimators: <a href="https://github.com/sktime/sktime/pull/3336">#3336</a></li>
+<li>Save/Load Functionality for both Classical and DL Estimator: <a href="https://github.com/sktime/sktime/pull/3425">#3425</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="3755-creating-base-deep-classhttpsgithubcomsktimesktimepull3755"><a href="https://github.com/sktime/sktime/pull/3755">#3755: Creating Base Deep Class</a><a href="#3755-creating-base-deep-classhttpsgithubcomsktimesktimepull3755" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>During the migration of estimators from sktime-dl to sktime, the existing class design for DL estimators was observed to be redundant. Hence, I proposed to change the design of the base classes, and introduce a new <code>BaseDeepEstimator</code>, a parent class which would be common to all DL estimators.</p>
+<p>My initial PR related to it was in the form of a <a href="https://github.com/sktime/enhancement-proposals">STEP document</a>, proposing a design document of the proposed changes. Based on the conversation and ideas there, multiple iterations of changes were made to make the design clearer and better. Finally, we decided to go with the solution of creating a parent <code>BaseDeepEstimator</code>.</p>
+<p>The proposed design structure would be</p>
+<pre><code>
+BaseEstimator -&gt; BaseDeepEstimator -&gt; BaseDeepClassifier -&gt; CNNClassifier
+
+</code></pre><ul>
+<li>Design for Base Deep Class: <a href="https://github.com/sktime/enhancement-proposals/pull/26">#26</a></li>
+<li>Creating Base Deep Class: <a href="https://github.com/sktime/sktime/pull/3755">#3755</a></li>
+</ul>
+<h2 id="3501-adding-dlforecaster-to-sktimehttpsgithubcomsktimesktimepull3501"><a href="https://github.com/sktime/sktime/pull/3501">#3501: Adding DLForecaster to sktime</a><a href="#3501-adding-dlforecaster-to-sktimehttpsgithubcomsktimesktimepull3501" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>Worked on adding DL Forecasters to sktime, with a similar structure as that of DL Classifiers and DL Regressors. In this case, since there is no pre-existing code base for DL forecasters, we will have to create DL Forecasters ourselves, roughly following the structure of other DL Estimators.</p>
+<p>The process for creating this was a lot more theoretical than coding based. It required 2 weeks of literature review, where I tried finding papers with an existing implementation of DL Forecasters which could be adapted to sktime&rsquo;s code base, and also spent time just learning about forecasters in general, and what all can they do.</p>
+<p>Finally, I started writing the code for it with a lot of help from my mentors, and the current progress is really good! At this stage, the forecaster is ready to be used, and the only thing remaining is the integration of it with the base design of DL Estimators, which requires a design decision.</p>
+<p>In general, forecasters take input in _fit as (y, fh=None, X=None), where y is the main data we need to use for predictions, and predict, and X is the exogeneous data which may or may not be provided.</p>
+<p>But in DL Estimators, y represents the target, and X represents the input to the model.</p>
+<p>There is an inherent difference in what each variable means in these cases. In my current implementation of this, I have tried to adhere to both norms as much as possible (in mlp.py I have taken input as expected of a forecaster, but then converted into a datatype which is more appropriate for a DL model as source and target), but once I try to adhere to the overall structure for BaseDeep classes, it breaks since it is still checking for X and y in the context of DL models.</p>
+<p>There is an implementation which directly works for now in the notebook, but for implementation which is consistent with the style, either we need to take a step and change how DL Forecasters work separately (not preferred) or we could create a function which does the conversion from forecasting type data to DL type data, and accept the DL type data as the input.</p>
+<ul>
+<li>Adding DLForecaster to sktime: <a href="https://github.com/sktime/sktime/pull/3501">#3501</a></li>
+</ul>
+<h2 id="some-other-prs">Some other PRs<a href="#some-other-prs" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>Here are a list of some other PRs I have worked on during the duration of my GSoC. They did not really come into any of the 3 buckets above, but they are meaningful contributions nonetheless!</p>
+<ul>
+<li>VECM model as Forecaster: <a href="https://github.com/sktime/sktime/pull/2829">#2829</a></li>
+<li>predict_interval for VECM: <a href="https://github.com/sktime/sktime/pull/2925">#2925</a></li>
+<li>Adding solution to &ldquo;no matches found&rdquo; error: <a href="https://github.com/sktime/sktime/pull/2786">#2786</a></li>
+<li>Presented during Dev Days of sktime in Summer &lsquo;22 and in Fall &lsquo;22.</li>
+</ul>
+<h2 id="whats-next">Whats Next?<a href="#whats-next" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>I plan to continue working with sktime, and work on DL estimators mostly. Main job of work would be to complete the DLForecaster, so atleast one of them is up as soon as possible. I also need to take time out to create example notebooks and documentations on how to use these DL Estimators.</p>
+<h2 id="acknowledgements">Acknowledgements<a href="#acknowledgements" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>A lot of credit goes to the <code>sktime</code> community to help me throughout the summer! It was tough starting out on a huge code base like this, but they helped me out through each step and made it comfortable for me to contribute in the best manner possible. Especially I would like to thank my mentors: Franz Kiraly, Guzal Bulatova and Leonidas Tsaprounis for overlooking my project, and helping me at every step. I would also recommend you to check out projects done by other GSoC contributors in sktime: <a href="https://miraep8.github.io/2022-09-14-GSoC-2022-Project-Summary/">Mirae Parker</a> and <a href="https://katiebuc.github.io/gsoc/">Katie Buchhorn</a></p>
+
+			</div>
+
+			<hr class="post-end">
+			<footer class="post-info">
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://aurumnpegasus.github.io/tags/dl">DL</a></span><span class="tag"><a href="https://aurumnpegasus.github.io/tags/software">software</a></span>
+				</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>1261 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2022-11-17 15:08 &#43;0530</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="prev-post" href="https://aurumnpegasus.github.io/posts/prf/">
+				<span class="post-nav-label">Older&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>Psuedo Random Functions</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+		<p>&copy; 2022 <a href="https://aurumnpegasus.github.io">Shivansh Subramanian</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://aurumnpegasus.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://aurumnpegasus.github.io/js/bundle.min.4a9a0ac3d2217822c7865b4161e6c2a71de1d70492264337755427898dd718f6.js" integrity="sha256-SpoKw9IheCLHhltBYebCpx3h1wSSJkM3dVQniY3XGPY=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>

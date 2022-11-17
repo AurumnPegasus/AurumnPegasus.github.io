@@ -3,27 +3,52 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://aurumnpegasus.github.io/tags/dl/</loc>
+    <lastmod>2022-11-17T15:08:33+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aurumnpegasus.github.io/posts/gsoc/</loc>
+    <lastmod>2022-11-17T15:08:33+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aurumnpegasus.github.io/posts/</loc>
+    <lastmod>2022-11-17T15:08:33+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aurumnpegasus.github.io/</loc>
+    <lastmod>2022-11-17T15:08:33+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aurumnpegasus.github.io/tags/software/</loc>
+    <lastmod>2022-11-17T15:08:33+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aurumnpegasus.github.io/tags/</loc>
+    <lastmod>2022-11-17T15:08:33+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aurumnpegasus.github.io/tags/math/</loc>
+    <lastmod>2022-06-15T08:42:40+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aurumnpegasus.github.io/posts/prf/</loc>
+    <lastmod>2022-06-15T08:42:40+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>https://aurumnpegasus.github.io/tags/algorithm/</loc>
     <lastmod>2021-11-07T21:32:38+05:30</lastmod>
   </url>
   
   <url>
     <loc>https://aurumnpegasus.github.io/posts/fastmult/</loc>
-    <lastmod>2021-11-07T21:32:38+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aurumnpegasus.github.io/posts/</loc>
-    <lastmod>2021-11-07T21:32:38+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aurumnpegasus.github.io/</loc>
-    <lastmod>2021-11-07T21:32:38+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aurumnpegasus.github.io/tags/</loc>
     <lastmod>2021-11-07T21:32:38+05:30</lastmod>
   </url>
   
@@ -35,11 +60,6 @@
   <url>
     <loc>https://aurumnpegasus.github.io/tags/system/</loc>
     <lastmod>2021-10-30T21:18:49+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aurumnpegasus.github.io/tags/math/</loc>
-    <lastmod>2021-10-13T21:13:35+05:30</lastmod>
   </url>
   
   <url>
@@ -73,12 +93,17 @@
   </url>
   
   <url>
-    <loc>https://aurumnpegasus.github.io/posts/networks/</loc>
-    <lastmod>2021-05-09T17:58:07+05:30</lastmod>
+    <loc>https://aurumnpegasus.github.io/posts/owasp/</loc>
+    <lastmod>2021-06-14T21:08:24+05:30</lastmod>
   </url>
   
   <url>
     <loc>https://aurumnpegasus.github.io/tags/tryhackme/</loc>
+    <lastmod>2021-06-14T21:08:24+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aurumnpegasus.github.io/posts/networks/</loc>
     <lastmod>2021-05-09T17:58:07+05:30</lastmod>
   </url>
   
