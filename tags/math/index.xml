@@ -7,17 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Wed, 15 Jun 2022 08:42:40 +0530</lastBuildDate><atom:link href="https://aurumnpegasus.github.io/tags/math/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Psuedo Random Functions</title>
-      <link>https://aurumnpegasus.github.io/posts/prf/</link>
-      <pubDate>Wed, 15 Jun 2022 08:42:40 +0530</pubDate>
-      
-      <guid>https://aurumnpegasus.github.io/posts/prf/</guid>
-      <description>A simple explanation on what Psuedo Random numbers are, and how we can securely send information using PRF.
-Introduction In a lot of computational and mathematical programs, random numbers are important. Might be just to take probability, to shuffle a deck of cards or to simulate a game. The only way to get a number which is truly random is to depend on certain physical phenomenon which is unpredictable, like radioactive decay of isotopes or airwave static.</description>
-    </item>
-    
+    <lastBuildDate>Wed, 13 Oct 2021 21:13:35 +0530</lastBuildDate><atom:link href="https://aurumnpegasus.github.io/tags/math/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Reduced Row Echelon Form</title>
       <link>https://aurumnpegasus.github.io/posts/rref/</link>
